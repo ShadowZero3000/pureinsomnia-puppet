@@ -1,5 +1,5 @@
 class profiles::pureinsomnia_webserver () {
-  $puppet_home = '/opt/puppet_repo/pureinsomnia-puppet'
+  $puppet_home = '/opt/puppet_repo'
   file { '/var/www':
     ensure => 'directory',
   }
