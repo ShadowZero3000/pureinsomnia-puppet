@@ -9,17 +9,17 @@ class profiles::pureinsomnia_webserver () {
     require => File['/var/www']
   }
   cron { 'puppet-run':
-    command => "/usr/bin/puppet apply ${puppet_home}/manifests/default.pp --modulepath=\"${puppet_home}/modules:/etc/puppet/modules\" --hiera_config \"${puppet_home}/hiera.yaml\"",
+    command => "/usr/bin/puppet apply ${puppet_home}/manifests/default.pp --modulepath=\"${puppet_home}/modules:/etc/puppet/modules\" --hiera_config \"${puppet_home}/hiera.yaml\" > /dev/null",
     user => 'root',
     minute => '*/15',
   }
   cron { 'puppet-update':
-    command => 'cd /opt/puppet_repo && /usr/bin/git pull',
+    command => 'cd /opt/puppet_repo && /usr/bin/git pull > /dev/null',
     user => 'root',
     minute => '*/10',
   }
   cron { 'puppet-bootstrap':
-    command => "cd ${puppet_home} && ./bootstrap.sh",
+    command => "cd ${puppet_home} && ./bootstrap.sh > /dev/null",
     user => 'root',
     minute => '*/10',
   }
