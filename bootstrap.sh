@@ -68,7 +68,7 @@ if [ ! -f $vagrantfile ]; then
 	repo_home=/opt/puppet_repo
 else
 	echo "Running vagrant variant"
-	repo_home=/vagrant/pureinsomnia_puppet
+	repo_home=/vagrant/pureinsomnia-puppet
 	checkfile="/var/vagrant_has_dropped_data"
 	if [ ! -f $checkfile ]; then
 		cp /vagrant/data/* /opt/. -R
