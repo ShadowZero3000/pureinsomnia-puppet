@@ -1,7 +1,7 @@
 class profiles::sshd (
 ){
-  sshd::config{
-    "PermitRootLogin": value => "no";
-    "PasswordAuthentication": value => "no";
+  class { 'ssh::server":
+    permit_root_login => 'no',
+    password_authentication => 'no',
   }
 }
